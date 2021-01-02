@@ -20,15 +20,15 @@
 
  .headSec {
    min-height:10px;
-   background-color: green;
+   background-color: #339933;
    width: 100%;
    margin-bottom:10px;
    overflow: auto;
-  
   }
+
   .headSec h1 {
    color: #ffffff;
-   font-size: 70px;
+   font-size: 60px;
    padding: 15px;
   
   }
@@ -37,16 +37,18 @@
    margin: 0;
    padding: 0;
    overflow: hidden;
-   background-color: #333;
-  
+   background-color: #5c5c3d;
+   font-size: 15px;
   }
-  li {float:left;}
-   li a {
+
+  li {
+    float:left;
+  }
+  
+  li a {
    display: block;
-   color: white;
    text-align: center;
    padding: 14px 16px;
-   text-decoration: none;
    }
 
   .mainCont {
@@ -60,7 +62,7 @@
 
   .foot {
    min-height: 80px;
-   background-color: green;
+   background-color: #339933;
    width: 100%;
    margin-top: 10px;
    position: fixed;
@@ -95,3 +97,11 @@ input[type=submit] {
    input[type=submit]:hover {
     background-color: #45a049;
    }
+
+   .jumbotron{
+    background-image: asset-url('image_home.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 425px;
+}
