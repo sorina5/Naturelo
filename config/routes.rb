@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
   resources :products
-  resources :items
   get 'static_pages/Home'
   get 'static_pages/About'
   get 'static_pages/Contact'
