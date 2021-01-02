@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<div id="productsContainer">
+
+<table id="customers">
+ <% total = 0 %>
+ <% @cart.each do |id, quantity| %>
+
+ <% product = Product.find_by_id(id) %>
+
+ <tr>
+   <td>
+      <div class="image">
+         <%= link_to (image_tag product.Image, :style =>"height:40px"), product %>
+      </div>
+   </td>
+
+      <td class="name"><%= link_to product.Name, product %></td>
+      <td><a href="#">Remove From Cart</a></td>
+      <td> <a href="cart/increase/<%= product.id %>" >Increase products<i class='fas fa-arrow-alt-circledown'></i></a></td>
+      <td> <a href="cart/reduce/<%= product.id %>" >Reduce products<i class='fas fa-arrow-alt-circledown'></i></a></td>
+      <td class="price"><%= number_to_currency(product.Price, :unit =>"€") %></td>
+      <td class="quantity"><%= quantity %></td>
+      <td class="price"><%= number_to_currency(quantity * product.Price, :unit =>"€") %></td>
+ </tr>
+      <tr>
+         <% total += quantity * product.Price %>
+      </tr>
+
+ <% end %>
+
+      <tr>  
+         Grang Total: <%= number_to_currency(total, :unit => "€") %>
+      </tr>
+
+ </table>
+
+ </div>

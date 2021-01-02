@@ -2,13 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-#itemsContainer {
+#productsContainer {
     width: 100%;
     text-align: center;
    
    
    }
-   #itemsContainer h1 {
+   #productsContainer h1 {
     display: block;
     color: #4CAF50;
     text-align: center;
@@ -17,7 +17,7 @@
    
    
    }
-   .itemhols {
+   .producthols {
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 10px;
@@ -27,7 +27,7 @@
     min-height: 300px;
    
    }
-   .itemhols h1 {
+   .producthols h1 {
     display: block;
     color: #4CAF50;
     text-align: center;
@@ -36,7 +36,7 @@
     font-size: 20px
    
    }
-   .itemhols p {
+   .producthols p {
     display: block;
     color: #4CAF50;
     text-align: center;
@@ -45,7 +45,7 @@
     font-size: 16px
    
    }
-   .itemholsIm {
+   .productholsIm {
     width: 30%;
     margin-left: auto;
     margin-right: auto;
