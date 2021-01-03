@@ -1,6 +1,11 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
+  def search
+    st = "%#{params[:q]}%"
+    @products= Product.where("name like ?", st)
+  end
+  
   # GET /products
   def index
     @products = Product.all

@@ -1,31 +1,40 @@
 <p id="notice"><%= notice %></p>
+
 <div id="ProductsContainer">
 
- <h1>Products</h1>
+    <h1>All Products</h1>
 
+    <div id="search">
+      <%= form_tag("/search", :method => "post") do %>
+      <%= label_tag(:q, "Search:") %>
+      <%= text_field_tag(:q) %>
+      <%= submit_tag("Search") %>
+      <% end %>
+    </div>
 
+    <% @products.each do |product| %>
+    <div class="producthols">
+    <h1><%= product.Name %></h1>
+    <%= link_to (image_tag product.Image, :class => "productholsIm"), product %>
+    <p><%= product.Description %></p>
+    <p>Price <%= number_to_currency(product.Price, :unit => "€") %></p>
 
- <% @products.each do |product| %>
- <div class="producthols">
- <h1><%= product.Name %></h1>
-
- <%= link_to (image_tag product.Image, :class => "productholsIm"), product %>
- <p><%= product.Description %></p>
- <p>Price <%= number_to_currency(product.Price, :unit => "€") %>
- </p>
-
+  <p>
   <a href="/cart/<%= product.id %>" class="button">Add To Cart</a>
-
- <p>
- <%= link_to 'Show', product, :class => "button", :role => "button" %>
- <%= link_to 'Edit', edit_product_path(product), :class => "button", :role => "button" %>
- <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }, :class => "button", :role =>
-"button" %>
- </p>
-
- </div>
- <% end %>
-
+  <%= link_to 'Show', product, :class => "button", :role => "button" %>
+    <% if session[:login] == 1 %>
+    <%= link_to 'Edit', edit_product_path(product), :class =>"button", :role=>"button" %>
+    <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }, :class =>"button", :role=>"button" %>
+    <%= link_to 'New product', new_product_path, :class => "button", :role => "button" %>
+    <% end %>
+  </p>
+        
+      </div>
+    <% end %>
+      
 </div>
+
 <br>
-<%= link_to 'New product', new_product_path, :class => "button", :role => "button" %>
+<%= link_to 'New Product',  new_product_path, :class => "button", :role => "button" %>
+
+

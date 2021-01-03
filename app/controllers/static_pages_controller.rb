@@ -5,6 +5,9 @@ class StaticPagesController < ApplicationController
   def about
   end
 
-  def contact
+  def pay
+    @order = Order.find(parmas[:id])
+    @order.update_attribute(:status, "Pay with Paypal")
   end
+
 end
