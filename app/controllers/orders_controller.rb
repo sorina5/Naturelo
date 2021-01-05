@@ -12,7 +12,6 @@ class OrdersController < ApplicationController
     @orderprods = Orderprod.where(order_id: params[:id])
     @user = User.find(current_user.id)
     @orders = @user.orders.all
-    
   end
 
   # GET /orders/new

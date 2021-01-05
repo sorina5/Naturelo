@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<% if @order.user.email == @user.email %>
+
 <p>
   <strong>Order date:</strong>
   <%= @order.order_date %>
@@ -17,3 +19,7 @@
 
 <%= link_to 'Edit', edit_order_path(@order) %> |
 <%= link_to 'Back', orders_path %>
+
+<% else %>
+<h1>You did not place this order</h1>
+<% end %>

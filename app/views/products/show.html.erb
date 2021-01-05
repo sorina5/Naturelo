@@ -7,7 +7,7 @@
 
  <div class="producthols">
  <p>Price <%= number_to_currency(@product.Price, :unit => "€") %></p>
->
+
  <p>
  <%= link_to 'Back', products_path, :class => "button", :role => "button" %>
  <%= link_to 'Edit', edit_product_path(@product), :class => "button", :role => "button" %>
@@ -15,6 +15,5 @@
  </p>
 
  </div>
-
 
  </div>

@@ -1,8 +1,10 @@
 <h2>Results for your search <%= @search_term %></h2>
+
 <% if @products.length == 0 %>
 <br />
 <h2>No products were found to match your search</h2>
 <% end %>
+
 <table class="catalog">
 <% @products.each do |product| %>
 <tr>
