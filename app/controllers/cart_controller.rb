@@ -44,28 +44,30 @@ class CartController < ApplicationController
     
   end
   
-def createOrder
-# @orderNo = Order.new(order_params) #find(params[:id])
   
- # Step 1: Get the current user
-    @user = User.find(current_user.id)
+  def createOrder
+      # Step 1: Get the current user
+      @user = User.find(current_user.id)
 
- # Step 2: Create a new order and associate it with the current user
-    @order = @user.orders.build(:order_date => DateTime.now, :status => 'Pending')
-    @order.save
+      # Step 2: Create a new order and associate it with the current user
+      @order = @user.orders.build(:order_date => DateTime.now, :status => 'Pending')
+      @order.save
 
- # Step 3: For each product in the cart, create a new product on the order!!
-    @cart = session[:cart] || {} # Get the content of the Cart
-    @cart.each do | id, quantity |
-    product = Product.find_by_id(id)
-    # @orderprod = @order.orderprods.build(:product_id => product.id, :name => product.name, :description => product.description, :quantity => quantity, :price=> product.price)
-    # @orderprod.save
+      # Step 3: For each product in the cart, create a new product on the order!!
+      @cart = session[:cart] || {} # Get the content of the Cart
+      @cart.each do | id, quantity |
+      product = Product.find_by_id(id)
+      @orderprod = @order.orderprods.build(:product_id => product.id, :name => product.Name, :description => product.Description, :quantity => quantity, :price=> product.Price)
+      @orderprod.save
     end
- 
- @orders = Order.all
- @orderprods = Orderprod.where(order_id: Order.last)
- 
- session[:cart] = nil # Hidden for development so I can refresh the page
+
+    @orders = Order.last
+    @orderprods = Orderprod.where(order_id: Order.last)
+
+    session[:cart] = nil
+    
+
+  end
  
 end
 
@@ -74,4 +76,3 @@ end
       params.require(:order).permit(:order_date, :user_id, :status)
     end
   
-end

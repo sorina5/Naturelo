@@ -5,4 +5,7 @@ class Order < ApplicationRecord
     params.require(:order).permit(:order_date, :user_id, :status)
   end
 
+  has_many :orderprods
+  belongs_to :user
+
 end

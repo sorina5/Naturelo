@@ -49,6 +49,7 @@ li a {
   display: block;
   text-align: center;
   padding: 14px 16px;
+  color: white;
 }
 
 .mainCont {
@@ -85,7 +86,7 @@ input[type=text], select {
 input[type=submit] {
     width: 100%;
     background-color: #4CAF50;
-    color: white;
+    color: #55554f;
     padding: 14px 20px;
     margin: 8px 0;
     border: none;
@@ -97,14 +98,22 @@ input[type=submit]:hover {
     background-color: #45a049;
    }
 
-   .jumbotron{
+.jumbotron{
     background-image: asset-url('image_home.jpg');
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 425px;
+    height: 525px;
 }
 
 #search{
   width: 100%;
+}
+
+.about-section {
+  padding: 50px;
+  text-align: center;
+  background-color: #9fdf9f;
+  color: #55554f;
+  height: 525px;
 }
